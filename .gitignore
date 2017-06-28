@@ -1,0 +1,17 @@
+src/insamao/settings/local.py
+.DS_Store
+/Include
+/Lib
+/Scripts
+/tcl
+.idea
+__pycache__
+*.sqlite3
+migrations/
+*.xlsx
+pip-selfcheck.json
+venv
+static-cdn
+/pip-selfcheck.json
+src/media/
+.vscode

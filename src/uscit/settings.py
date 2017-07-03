@@ -25,7 +25,7 @@ SECRET_KEY = '!k(-&0@k2r#3&o2o-9ke2tfa$pug2(@4b(iipmwc*90bw3sq^c'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['uscit.me', 'www.uscit.me']
 
 
 # Application definition

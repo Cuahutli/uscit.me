@@ -62,7 +62,7 @@ DEFAULT_REDIRECT_URL = 'http://www.uscit.me:8000' #'http://www.uscit.me' en prod
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [os.path.join(BASE_DIR, "templates")],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [

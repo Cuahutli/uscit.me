@@ -1,0 +1,8 @@
+<div style="width: 800px; margin: 0 auto;">
+    <h1>Que tal, hola a todos</h1>
+    <form method="POST" action='.'>
+        {% csrf_token %}
+        <input name='url' type="text" placeholder="ingresa la url. Ej. http://www.gruposcit.com">
+        <input type="submit" value="shorten">
+    </form>
+</div>

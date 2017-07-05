@@ -19,13 +19,24 @@ class HomeView(View):
 
     def post(self, request, *args, **kwargs):
         form = SubmitURLForm(request.POST)
-        if form.is_valid():
-            print(form.cleaned_data.get('url'))
         ctx = {
             "title": "Envía la URL",
             "form": form
         }
-        return render(request, "shortener/home.html", ctx) 
+        template = "shortener/home.html"
+        if form.is_valid():
+            new_url = form.cleaned_data.get('url')
+            obj, created = KirrURL.objects.get_or_create(url=new_url)
+            ctx ={
+                "obj":obj,
+                "created": created
+            }
+            if created:
+                template = "shortener/success.html"
+            else:
+                template = "shortener/already-exists.html"
+
+        return render(request, template, ctx) 
 
 class KirrCBView(View): #Class Based View CBV
     def get(self, request, shortcode=None, *args, **kwargs):

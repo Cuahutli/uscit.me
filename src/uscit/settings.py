@@ -58,7 +58,7 @@ MIDDLEWARE = [
 ROOT_URLCONF = 'uscit.urls'
 ROOT_HOSTCONF = 'uscit.hosts'
 DEFAULT_HOST = 'www'
-DEFAULT_REDIRECT_URL = 'http://www.uscit.me'
+DEFAULT_REDIRECT_URL = 'http://www.uscit.me:8000' #'http://www.uscit.me' en produccion
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',

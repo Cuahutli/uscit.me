@@ -1,8 +1,6 @@
 from django.db import models
 
-# Create your models here.
 from shortener.models import KirrURL
-
 
 class ClickEventManager(models.Manager):
     def create_event(self, instance):
@@ -22,4 +20,4 @@ class ClickEvent(models.Model):
     objects = ClickEventManager()
 
     def __str__(self):
-        return "{i}".format(i=self.count)
+        return "{url} - {i}".format(i=self.count, url=self.kirr_url.get_short_url())

@@ -1,12 +1,13 @@
 from django.db import models
 from django.conf import settings
-#from django.core.urlresolvers import reverse
-from django_hosts.resolvers import reverse
-from .utils import create_shortcode
-from .validators import validate_dot_com, validate_url # al aplicarlos al model también los podemos validar en el admin de django
-# Create your models here.
 
-SHORTCODE_MAX = getattr(settings, 'SHORTCODE_MAX', 15) # is same as setting.SHORTCODE_MAX, 15 IS A DEFAULT VALUE
+from django_hosts.resolvers import reverse
+
+from .utils import create_shortcode
+from .validators import validate_dot_com, validate_url
+
+
+SHORTCODE_MAX = getattr(settings, 'SHORTCODE_MAX', 15) 
 
 class KirrURLManager(models.Manager):
     def all(self, *args, **kwargs):
@@ -30,8 +31,8 @@ class KirrURLManager(models.Manager):
 class KirrURL(models.Model):
     url = models.CharField(max_length=220, validators=[validate_url] )
     shortcode = models.CharField(max_length=SHORTCODE_MAX,  unique=True, blank=True)
-    update = models.DateTimeField(auto_now=True) #everytime the model is saved
-    timestamp = models.DateTimeField(auto_now_add=True) #when model whas created
+    update = models.DateTimeField(auto_now=True) 
+    timestamp = models.DateTimeField(auto_now_add=True)
     active =  models.BooleanField(default=True)
 
     objects = KirrURLManager()
@@ -50,4 +51,3 @@ class KirrURL(models.Model):
     def get_short_url(self):
         url_path = reverse('scode', kwargs={'shortcode' :self.shortcode}, host='www', scheme='http')#, port='8000' )
         return url_path
-        #return "http://uscit.me:8000/{shortcode}".format(shortcode=self.shortcode)"

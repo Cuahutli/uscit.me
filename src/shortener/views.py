@@ -6,7 +6,7 @@ from analytics.models import ClickEvent
 
 from .forms import SubmitURLForm
 from .models import KirrURL
-# Create your views here.
+
 
 class HomeView(View):
     def get(self, request, *args, **kwargs):
@@ -41,13 +41,10 @@ class HomeView(View):
 
         return render(request, template, ctx) 
 
-class URLRedirectView(View): #Class Based View CBV
+class URLRedirectView(View):
     def get(self, request, shortcode=None, *args, **kwargs):
-        print ("aqui vamos-->", shortcode)
         qs = KirrURL.objects.filter(shortcode__iexact=shortcode)
         if qs.count() != 1 and not qs.exists():
             raise Http404
         obj = qs.first()
-        print("hemos obtenedi este object-->", obj)
-        print(ClickEvent.objects.create_event(obj))
         return HttpResponseRedirect(obj.url)

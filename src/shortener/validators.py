@@ -10,7 +10,7 @@ def validate_url(value):
     try:
         url_validator(value)
     except:
-        raise ValidationError("Url Invalida")
+        raise ValidationError("Url Inválida")
     return value  
 
 def validate_dot_com(value):

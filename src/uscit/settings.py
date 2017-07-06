@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'django_hosts',
     # custom apps
     'shortener',
+    'analytics',
 ]
 
 MIDDLEWARE = [

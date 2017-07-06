@@ -1,6 +1,8 @@
 <div style="align-text: center; width: 800px; margin: 0 auto;">
     <h1> Creada</h1>
     <p>{{obj.url}}</p>
-    <p>{{obj.get_short_url}}</p>
+    {% if obj.clickevent %}
+        <p><a href="{{obj.get_short_url}}">{{obj.get_short_url}}</a></p>
+    {% endif %}
     <a href="/">+ Creeemos Otra</a>   
 </div>

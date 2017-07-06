@@ -4,13 +4,13 @@
     {{obj.shortcode}}
 {% endblock title %}
 {% block content %}
-<div class="well">
+<div>
     <h1> Existe </h1>
     <p>{{obj.url}}</p>
     {% if obj.clickevent %}
         <p>Count {{obj.clickevent.count }}</p>
     {% endif %}
-    <p><a class="btn btn-primary btn-link" href="{{obj.get_short_url}}">{{obj.get_short_url}}</a></p>
+    <p><a class="btn btn-link" href="{{obj.get_short_url}}">{{obj.get_short_url}}</a></p>
     <a class='btn btn-default' href="/">+ Creeemos Otra</a> 
 </div>
 {% endblock content %}

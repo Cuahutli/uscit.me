@@ -6,7 +6,10 @@ class SubmitURLForm(forms.Form):
          label='',
          validators=[validate_url],
          widget = forms.TextInput(
-                attrs={"placeholder": "¿Que URL acortaremos?" }
+                attrs={
+                    "placeholder": "¿Que URL acortaremos?",
+                    "class":"form-control"    
+                }
             )
          )
 

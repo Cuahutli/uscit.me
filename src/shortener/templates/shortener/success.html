@@ -1,13 +1,13 @@
 {% extends "base.html" %}
 
 {% block content %}
-<div class="well">
+<div>
     <h1> Creada</h1>
     <p>{{obj.url}}</p>
     {% if obj.clickevent %}
         <p><a href="{{obj.get_short_url}}">{{obj.get_short_url}}</a></p>
     {% endif %}
-    <p><a class="btn btn-primary btn-link" href="{{obj.get_short_url}}">{{obj.get_short_url}}</a></p>
+    <p><a class="btn  btn-link" href="{{obj.get_short_url}}">{{obj.get_short_url}}</a></p>
     <a href="/">+ Creeemos Otra</a>   
 </div>
 {% endblock content %}

@@ -12,7 +12,7 @@ class HomeView(View):
     def get(self, request, *args, **kwargs):
         form = SubmitURLForm()
         ctx = {
-            "title": "Envía la URL",
+            "title": "uscit.me",
             "form": form
         }
         return render(request, "shortener/home.html", ctx) 
@@ -20,7 +20,7 @@ class HomeView(View):
     def post(self, request, *args, **kwargs):
         form = SubmitURLForm(request.POST)
         ctx = {
-            "title": "Envía la URL",
+            "title": "uscit.me",
             "form": form
         }
         template = "shortener/home.html"

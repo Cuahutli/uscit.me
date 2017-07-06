@@ -2,7 +2,7 @@ from django import forms
 from .validators import validate_dot_com, validate_url
 
 class SubmitURLForm(forms.Form):
-    url = forms.CharField(label='Enviar URL', validators=[validate_url, validate_dot_com])
+    url = forms.CharField(label='Enviar URL', validators=[validate_url])
 
     #esta función es para sobreescribir el comportamiento en un formulario valido .is_valid del form.cleaned_data()
     #def clean(self):

@@ -28,7 +28,7 @@ class KirrURLManager(models.Manager):
 
 
 class KirrURL(models.Model):
-    url = models.CharField(max_length=220, validators=[validate_url, validate_dot_com] )
+    url = models.CharField(max_length=220, validators=[validate_url] )
     shortcode = models.CharField(max_length=SHORTCODE_MAX,  unique=True, blank=True)
     update = models.DateTimeField(auto_now=True) #everytime the model is saved
     timestamp = models.DateTimeField(auto_now_add=True) #when model whas created

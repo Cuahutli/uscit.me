@@ -1,7 +1,16 @@
-<div style="align-text: center; width: 800px; margin: 0 auto;">
+{% extends "base.html" %}
+
+{% block title %}
+    {{obj.shortcode}}
+{% endblock title %}
+{% block content %}
+<div class="well">
     <h1> Existe </h1>
     <p>{{obj.url}}</p>
-    <p>Count {{obj.clickevent.count }}</p>
-    <p><a href="{{obj.get_short_url}}">{{obj.get_short_url}}</a></p>
-    <a href="/">+ Creeemos Otra</a> 
+    {% if obj.clickevent %}
+        <p>Count {{obj.clickevent.count }}</p>
+    {% endif %}
+    <p><a class="btn btn-primary btn-link" href="{{obj.get_short_url}}">{{obj.get_short_url}}</a></p>
+    <a class='btn btn-default' href="/">+ Creeemos Otra</a> 
 </div>
+{% endblock content %}

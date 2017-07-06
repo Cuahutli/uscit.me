@@ -1,16 +1,14 @@
-from django.http import HttpResponse, HttpResponseRedirect
+from django.http import HttpResponse, HttpResponseRedirect, Http404
 from django.shortcuts import render, get_object_or_404
 from django.views import View
 
 from analytics.models import ClickEvent
 
-from .models import KirrURL
 from .forms import SubmitURLForm
+from .models import KirrURL
 # Create your views here.
 
 class HomeView(View):
-    
-
     def get(self, request, *args, **kwargs):
         form = SubmitURLForm()
         ctx = {
@@ -28,6 +26,9 @@ class HomeView(View):
         template = "shortener/home.html"
         if form.is_valid():
             new_url = form.cleaned_data.get('url')
+            if not 'https://' in new_url:
+                if not 'http://' in new_url:
+                    new_url = 'http://' + new_url
             obj, created = KirrURL.objects.get_or_create(url=new_url)
             ctx ={
                 "obj":obj,
@@ -42,12 +43,11 @@ class HomeView(View):
 
 class URLRedirectView(View): #Class Based View CBV
     def get(self, request, shortcode=None, *args, **kwargs):
+        print ("aqui vamos-->", shortcode)
         qs = KirrURL.objects.filter(shortcode__iexact=shortcode)
         if qs.count() != 1 and not qs.exists():
             raise Http404
         obj = qs.first()
+        print("hemos obtenedi este object-->", obj)
         print(ClickEvent.objects.create_event(obj))
         return HttpResponseRedirect(obj.url)
-
-    def post(self,request, *args, **kwargs):
-        return HttpResponse()

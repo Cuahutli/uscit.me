@@ -2,12 +2,13 @@
 
 {% block content %}
 <div>
-    <h1> Creada</h1>
-    <p>{{obj.url}}</p>
+    <h4> URL creada, ahora puedes compartirla</h4>
+    <p><a class="btn btn-link url-corta" href="{{obj.get_short_url}}" >{{obj.get_short_url}}</a></p>
+    <p class="url-original">({{obj.url}})</p>
     {% if obj.clickevent %}
-        <p><a href="{{obj.get_short_url}}">{{obj.get_short_url}}</a></p>
+        <p class="count">ha sido utilizada: <span>{{obj.clickevent.count }} veces </span></p>
     {% endif %}
-    <p><a class="btn  btn-link" href="{{obj.get_short_url}}">{{obj.get_short_url}}</a></p>
-    <a href="/">+ Creeemos Otra</a>   
+    <a class='btn btn-info' href="/"><i class="fa fa-plus-circle" aria-hidden="true"></i>  Quiero acortar otra URL</a>
+</a> 
 </div>
 {% endblock content %}

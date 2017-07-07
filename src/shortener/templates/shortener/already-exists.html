@@ -5,12 +5,12 @@
 {% endblock title %}
 {% block content %}
 <div>
-    <h1> Existe </h1>
-    <p>{{obj.url}}</p>
+    <h4> Alguién más se interesó en esta URL <br/> y ya ha creado esto por ti </h4>
+    <p><a class="btn btn-link url-corta" href="{{obj.get_short_url}}" >{{obj.get_short_url}}</a></p>
+    <p class="url-original">({{obj.url}})</p>
     {% if obj.clickevent %}
-        <p>Count {{obj.clickevent.count }}</p>
+        <p class="count">ha sido utilizada: <span>{{obj.clickevent.count }} veces </span></p>
     {% endif %}
-    <p><a class="btn btn-link" href="{{obj.get_short_url}}">{{obj.get_short_url}}</a></p>
-    <a class='btn btn-default' href="/">+ Creeemos Otra</a> 
+    <a class='btn btn-info' href="/"><i class="fa fa-plus-circle" aria-hidden="true"></i>  Quiero acortar otra URL</a>
 </div>
 {% endblock content %}

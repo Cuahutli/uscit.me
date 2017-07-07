@@ -50,4 +50,5 @@ class KirrURL(models.Model):
 
     def get_short_url(self):
         url_path = reverse('scode', kwargs={'shortcode' :self.shortcode}, host='www', scheme='http')#, port='8000' )
-        return url_path
+        new_url =url_path.replace('www.','')
+        return new_url

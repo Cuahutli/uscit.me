@@ -48,3 +48,8 @@ class URLRedirectView(View):
             raise Http404
         obj = qs.first()
         return HttpResponseRedirect(obj.url)
+
+
+class AcercaDeView(View):
+    def get(self, request, shortcode=None, *args, **kwargs):
+        return render(request, 'acerca.html',{})

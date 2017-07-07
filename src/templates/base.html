@@ -11,6 +11,8 @@
     {% endblock title %}
     </title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" crossorigin="anonymous">
+    
     <link href="http://getbootstrap.com/examples/cover/cover.css" rel="stylesheet">
     <style>
       body{
@@ -31,6 +33,25 @@
       h1 a:hover{
         text-decoration: none;
       }
+
+      .link{
+        text-decoration: underline;
+        color: #a1b84a;
+      }
+      .link:hover{        
+        color: #76929B;
+      }
+
+      .creador{
+        
+        color: #76929B;
+      }
+
+      .creador:hover{        
+        text-decoration: underline;
+        color: #76929B;
+        
+      }
     </style>    
     
 </head>
@@ -40,6 +61,17 @@
       <div class="site-wrapper-inner">
 
         <div class="cover-container">
+          <div class="masthead clearfix">
+            <div class="inner">
+              <h3 class="masthead-brand">URL Shortener Creator</h3>
+              <nav>
+                <ul class="nav masthead-nav">
+                  <li ><a href="{% url 'home' %}" >Inicio</a></li>
+                  <li><a href="{% url 'acerca' %}">Acerca de</a></li>
+                </ul>
+              </nav>
+            </div>
+          </div>
 
           <div class="inner cover">
             {% block content %}{% endblock content %}                

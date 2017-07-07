@@ -7,7 +7,8 @@
     <div class="col-sm-6 col-sm-offset-3">
         <form method="POST" action='.'>{% csrf_token %}
             {{form.as_p}}
-            <input class='btn btn-primary' type="submit" value="shorten &raquo;">
+            
+            <button type="submit" class='btn btn-primary btn-lg'>Genera URL <i class="fa fa-link" aria-hidden="true"></i></button>
         </form>
     </div>
 </p>

@@ -7,7 +7,6 @@ src/uscit/settings/local.py
 .idea
 __pycache__
 *.sqlite3
-migrations/
 *.xlsx
 pip-selfcheck.json
 venv

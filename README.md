@@ -1,4 +1,4 @@
-# Poner en producción intranet.samao
+# Poner en producción uscit.me
 
 ## 1.- Como usuario `root` Crear usuario `webuser` y directorio `www` que contendrá la web
 - Creamos un nuevo usuario en linux llamado `websamao` 

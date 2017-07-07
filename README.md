@@ -108,7 +108,7 @@
     ```
     
 
-## 5.- Instalar y configurar apache
+## 4.- Instalar y configurar apache
 
 - Instalar `apache`
 
@@ -125,7 +125,7 @@
     sudo apt-get install libapache2-mod-wsgi
     ```    
     
-## 6.- Habilitar nuestro sitio en apache
+## 5.- Habilitar nuestro sitio en apache
 
 - Creamos un enlace simbólico del archivo contenido en la carpeta `conf` del proyecto a `/etc/apache2/sites-available`
     ```sh
@@ -141,7 +141,7 @@
     sudo service apache2 reload
     ```    
 
-## 7.- Ajustar permisos en las carpetas para que todo funcione correctamente
+## 6.- Ajustar permisos en las carpetas para que todo funcione correctamente
 
 - Agregar al usuario `webuser` al grupo `www-data` de apache
     ```sh
@@ -153,7 +153,7 @@
     sudo chown -R webuser:www-data /home/webuser/www
     ```
 
-## 8.- Actualizar el proyecto con los cambios realizados.
+## 7.- Actualizar el proyecto con los cambios realizados.
     
 Una vez implementado el proyecto para actualizarlo con los cambios que se hayan realizado y que todo funcione correctamente se deben realizar los siguientes pasos.
 

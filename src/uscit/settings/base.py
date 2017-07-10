@@ -18,6 +18,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'django.contrib.sites',
     # third party
     'django_hosts',
     # custom apps
@@ -104,3 +105,5 @@ STATICFILES_DIRS = [
 ]
 
 STATIC_ROOT =  os.path.join(os.path.dirname(BASE_DIR), "static-cdn", "static")#CDN
+
+SITE_ID=1

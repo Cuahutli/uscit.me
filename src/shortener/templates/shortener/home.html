@@ -5,11 +5,15 @@
 
 <p class="lead">
     <div class="col-sm-6 col-sm-offset-3">
+        {% if request.user.is_authenticated %}
         <form method="POST" action='.'>{% csrf_token %}
             {{form.as_p}}
             
             <button type="submit" class='btn btn-success btn-lg'>Genera URL <i class="fa fa-link" aria-hidden="true"></i></button>
         </form>
+        {% else %}
+        <p class="text-danger" style="font-size:1.3em; font-weight:700; text-shadow:0 1px 3px rgba(196, 89, 89, 0.5)">uscit.me ahora es privado </p>
+        {% endif %}
     </div>
 </p>
 {% endblock content %}

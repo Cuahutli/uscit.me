@@ -76,10 +76,14 @@
    ```sh
     git clone https://github.com/Cuahutli/uscit.me.git
     ```
+- Renombramos el directorio de `uscit.me` a `uscitme` para evitar conflictos al ligarlo con apache
+	```sh
+	mv uscit.me uscitme
+	```
 
-- Acceder al directorio `uscit.me` creado al hacer el clone dentro de `www`
+- Acceder al directorio `uscitme` creado al hacer el clone dentro de `www`
    ```sh
-    cd uscit.me
+    cd uscitme
     ```
     
 - Creamos un entorno virtual con `virtualenv`
@@ -102,9 +106,9 @@
     cd src && python manage.py collectstatic
     ```
     
--  Con el comando anterior se debio haber creado un directorio `static-cdn` dentro del directorio `uscit.me` , accedemos a él y creamos un directorio llamado `media`
+-  Con el comando anterior se debio haber creado un directorio `static-cdn` dentro del directorio `uscitme` , accedemos a él y creamos un directorio llamado `media`
    ```sh
-    cd ~/www/uscit.me/static-cdn && mkdir media
+    cd ~/www/uscitme/static-cdn && mkdir media
     ```
     
 
@@ -129,7 +133,7 @@
 
 - Creamos un enlace simbólico del archivo contenido en la carpeta `conf` del proyecto a `/etc/apache2/sites-available`
     ```sh
-    sudo ln -s /home/webuser/www/uscit.me/conf/apache-uscit.conf /etc/apache2/sites-available/
+    sudo ln -s /home/webuser/www/uscitme/conf/apache-uscit.conf /etc/apache2/sites-available/
     ```
     
 - Habilitamos nuestro sitio en apache
@@ -159,7 +163,7 @@ Una vez implementado el proyecto para actualizarlo con los cambios que se hayan 
 
 - Ingresar a la ruta del proyecto
     ```sh
-    cd ~/www/uscit.me
+    cd ~/www/uscitme
     ```
     
 - Bajar las actualizaciones del proyecto del repositorio git.
@@ -215,11 +219,11 @@ Una vez implementado el proyecto para actualizarlo con los cambios que se hayan 
     entonces habría que cambiar en el archivo de configuración la linea:
     
     ```sh
-    WSGIDaemonProcess insamao python-path=/home/webuser/www/uscit.me/src/:/home/webuser/www/uscit.me/venv/lib/python3.5/site-packages
+    WSGIDaemonProcess insamao python-path=/home/webuser/www/uscitme/src/:/home/webuser/www/uscitme/venv/lib/python3.5/site-packages
     ```
     
     por la siguiente:
 
     ```sh
-    WSGIDaemonProcess uscitme python-path=/home/webuser/www/uscit.me/src/ python-home=/home/webuser/www/uscit.me/venv/lib/python3.5/site-packages
+    WSGIDaemonProcess uscitme python-path=/home/webuser/www/uscitme/src/ python-home=/home/webuser/www/uscitme/venv/lib/python3.5/site-packages
     ```

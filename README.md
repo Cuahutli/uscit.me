@@ -219,7 +219,7 @@ Una vez implementado el proyecto para actualizarlo con los cambios que se hayan 
     entonces habría que cambiar en el archivo de configuración la linea:
     
     ```sh
-    WSGIDaemonProcess insamao python-path=/home/webuser/www/uscitme/src/:/home/webuser/www/uscitme/venv/lib/python3.5/site-packages
+    WSGIDaemonProcess uscitme python-path=/home/webuser/www/uscitme/src/:/home/webuser/www/uscitme/venv/lib/python3.5/site-packages
     ```
     
     por la siguiente:
